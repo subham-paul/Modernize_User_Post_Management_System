@@ -10,10 +10,12 @@
 ---
 
 ### 🧾 Description
+A modern, full-stack web application built with **Laravel, PHP, MySQL, JavaScript, and Bootstrap**.
+Features **role-based authentication (Admin/User)**, **secure image uploads**, and **post management workflows** powered by **Laravel’s Eloquent ORM**.
+Designed for scalable, efficient, and secure user-generated content management.
 
-**Modernize User Post Management System** is a full-stack web application built using **Laravel**, **PHP**, **MySQL**, **JavaScript**, and **Bootstrap**.  
-It enables seamless **user-generated content management** with **role-based authentication**, **secure file uploads**, and **admin moderation**.  
-The system provides an efficient and modernized workflow for both users and administrators.
+- **Tech Stack:** Laravel • PHP • MySQL • JavaScript • Bootstrap
+- **Core Features:** Role-Based Access • Post Moderation • File Upload Validation • Responsive UI
 
 ---
 
