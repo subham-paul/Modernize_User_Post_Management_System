@@ -1,5 +1,4 @@
 
-````markdown
 # 🚀 Modernize User Post Management System
 
 [![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
@@ -166,6 +165,3 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 ⭐ *If you like this project, consider giving it a star to show your support!*
 
-```
-
----
