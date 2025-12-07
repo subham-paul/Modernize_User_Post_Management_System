@@ -12,8 +12,7 @@
     <div class="container">
         @if(session()->has("USER"))
         <div class="float-right">Welcome {{session()->get("USER")}}
-            <a href="{{url('/users/logout')}}">Logout</a>
-
+            <a class="btn btn-sm btn-outline-secondary" href="{{url('/users/logout')}}">Logout</a>
         </div>
         @else
         <script>
@@ -26,11 +25,16 @@
         </header>
         <form method="POST" action="{{url('/posts/submit')}}">
             @csrf
-            <div class="form-group">Title : <input type="text" name="post_title" required class="form-control"></div>
-            <div class="form-group">Description: <textarea name="post_desc" id="post_desc" cols="30" rows="10" class="form-control"></textarea> </div>
+            <div class="form-group">Title : 
+                <input type="text" name="post_title" required class="form-control">
+            </div>
+            <div class="form-group">Description: 
+                <textarea name="post_desc" id="post_desc" cols="30" rows="10" class="form-control"></textarea>
+            </div>
             <div class="form-group">
-                <button class="btn btn-sm btn-outline-primary">Add</button> |
-                <button class="btn btn-sm btn-outline-success">Reset</button>
+                <button class="btn btn-sm btn-outline-primary">Add Post</button> |
+                <button class="btn btn-sm btn-outline-success">Clear Form</button> |
+                <a class="btn btn-sm btn-outline-dark" href="{{url('/')}}">View All Posts</a>
             </div>
         </form>
     </div>

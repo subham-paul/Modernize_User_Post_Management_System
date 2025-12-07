@@ -11,13 +11,13 @@
 <body>
     <header class="modal-header">
         <h1>Displaying all Posts :</h1>
-
+        <a class="btn btn-sm btn-outline-danger" href="{{url('/posts/add')}}">Add Post Here</a>
     </header>
     <div class="container-fluid">
         @if(session()->has("USER"))
         <div class="float-right">Welcome {{session()->get("USER")}}
-            <a href="{{url('/users/profile')}}">Profile</a>
-            <a href="{{url('/users/logout')}}">Logout</a>
+            <a class="btn btn-sm btn-outline-primary" href="{{url('/users/profile')}}">Profile</a>
+            <a class="btn btn-sm btn-outline-secondary" href="{{url('/users/logout')}}">Logout</a>
 
         </div>
         @else
@@ -63,7 +63,6 @@
             </table>
         </div>
         @endif
-        <a href="{{url('/posts/add')}}">Add Post</a>
     </div>
 </body>
 

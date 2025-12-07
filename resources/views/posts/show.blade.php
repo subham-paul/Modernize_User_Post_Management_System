@@ -15,7 +15,7 @@
     <div class="container card p-3 m-3">
         @if(session()->has("USER"))
         <div class="float-right">Welcome {{session()->get("USER")}}
-            <a href="{{url('/users/logout')}}">Logout</a>
+            <a class="btn btn-sm btn-outline-dark" href="{{url('/users/logout')}}">Logout</a>
 
         </div>
         @else
@@ -29,17 +29,22 @@
             @csrf
             <input type="hidden" name="post_id" value="{{$post->post_id}}">
             <p class="form-group">
-                Title : 
+                Title :
                 <input type="text" name="editTitle" value="{{$post->title}}" class="form-control">
             </p>
             <p class="form-group">
-                Description: 
-                <textarea name="editDesc" id="editDesc" cols="30" rows="10" class="form-control">{{$post->description}}</textarea> 
+                Description:
+                <textarea name="editDesc" id="editDesc" cols="30" rows="10" class="form-control">{{$post->description}}</textarea>
             </p>
-            <p class="form-group">Created :{{ date("d-m-y h:i:sA",strtotime($post->created))}}</p>
-            <button class="btn btn-sm btn-outline-info">UPDATE</button> |
-            <a class="btn btn-sm btn-outline-danger" onclick="return confirm('Do You want to Delete This Post ?');" href="{{url('/posts/delete')}}/{{$post->post_id}}">DELETE</a> |
-            <a class="btn btn-sm btn-outline-dark" href="{{url('/posts/all')}}">Back</a>
+            <div class="form-group">
+                <label class="">Created At :</label>{{ date("d-m-y h:i:sA",strtotime($post->created))}}
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-sm btn-outline-info">Update Record</button> |
+                <a class="btn btn-sm btn-outline-danger" onclick="return confirm('Do You want to Delete This Post ?');"
+                    href="{{url('/posts/delete')}}/{{$post->post_id}}">Delete Record</a> |
+                <a class="btn btn-sm btn-outline-dark" href="{{url('/')}}">View All Posts</a>
+            </div>
         </form>
         @endif
     </div>

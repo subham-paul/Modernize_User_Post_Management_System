@@ -68,7 +68,7 @@ class UserController extends Controller
         $request->session()->put("USER", $user[0]->name);
         $request->session()->put("USER-ID", $user[0]->user_id);
         $request->session()->put("ROLE", $user[0]->role);
-        return redirect("/posts/all");
+        return redirect("/");
       } else {
         //dd("Error");
         return redirect("/users/signin")->with("message", "invalid username or Password");

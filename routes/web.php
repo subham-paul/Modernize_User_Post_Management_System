@@ -16,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 //This action is defined by default
 
 //Now adding Our own routes
-Route::get('/', function () {
-    //return view('home');// /resources/views/home.blade.php
-      return view("home")->with("message","Hello , everyone from laravel 10");
-});
+// Route::get('/', function () {
+//     //return view('home');// /resources/views/home.blade.php
+//       return view("home")->with("message","Hello , everyone from laravel 10");
+// });
 
 use App\Http\Controllers\PostController;
 //if suppose user has typed http://localhost:****/posts
   //then PostController@index function will gets executed.
-Route::get("/posts/all",[PostController::class,'index']);
+Route::get("/",[PostController::class,'index']);
 Route::get("/post/{pid}",[PostController::class,'show']);
 Route::get("/posts/add",[PostController::class,'create']);
 Route::post("/posts/submit",[PostController::class,'submit']);

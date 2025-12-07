@@ -65,7 +65,7 @@ class PostController extends Controller
     $rows =  DB::table("posts")->insert($dataToSubmit);
     $message = ($rows == 1) ? "post_insert_success"  : "post_insert_error";
     //Laravel Flash Messaging with redirect function.
-    return redirect("/posts/all")->with("message", $message);
+    return redirect("/")->with("message", $message);
   }
 
   public function update(Request $request)
@@ -78,7 +78,7 @@ class PostController extends Controller
     $post_id = $request->post_id;
     $rows = DB::table("posts")->where("post_id", $post_id)->update($dataToUpdate);
     $message = ($rows == 1) ? "post_update_success" : "post_update_error";
-    return redirect("/posts/all")->with("message", $message);
+    return redirect("/")->with("message", $message);
   }
 
   public function delete($pid)
@@ -86,6 +86,6 @@ class PostController extends Controller
     //dd($pid);
     $rows = DB::table("posts")->where("post_id", $pid)->delete();
     $message = ($rows == 1) ? "post_delete_success" : "post_delete_error";
-    return redirect("/posts/all")->with("message", $message);
+    return redirect("/")->with("message", $message);
   }
 }
