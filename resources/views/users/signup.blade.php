@@ -93,13 +93,13 @@
 
     <div class="signup-container">
         <header class="modal-header border-0">
-            <h4 class="m-auto">Sign Up</h4>
+            <h4 class="m-auto">Create New Account</h4>
         </header>
 
         {{-- Flash Messages --}}
         @if(session()->has("message"))
         @if(session()->get("message")=="signup_success")
-        <div class="alert alert-success">SignUP Done.</div>
+        <div class="alert alert-success">SignUP Done</div>
         @elseif(session()->get("message")=="signup_error")
         <div class="alert alert-danger">Unable to SignUp Now</div>
         @endif
@@ -119,10 +119,12 @@
             @csrf
             <div class="form-group">
                 <div class="row">
-                    <div class="col">First Name:
+                    <div class="col">
+                        <label for="fname" class="font-weight-bold">First Name:</label>
                         <input type="text" name="fname" required class="form-control" value="{{old('fname')}}">
                     </div>
-                    <div class="col">Last Name:
+                    <div class="col">
+                        <label for="lname" class="font-weight-bold">Last Name:</label>
                         <input type="text" name="lname" required class="form-control" value="{{old('lname')}}">
                     </div>
                 </div>
@@ -130,10 +132,12 @@
 
             <div class="form-group">
                 <div class="row">
-                    <div class="col">Phone:
+                    <div class="col">
+                        <label for="phone" class="font-weight-bold">Phone:</label>
                         <input type="number" name="phone" id="phone" required class="form-control" value="{{old('phone')}}">
                     </div>
-                    <div class="col">Email:
+                    <div class="col">
+                        <label for="email" class="font-weight-bold">Email:</label>
                         <input type="text" name="email" id="email" required class="form-control" value="{{old('email')}}">
                     </div>
                 </div>
@@ -141,31 +145,43 @@
 
             <div class="form-group">
                 <div class="row">
-                    <div class="col">Password:
+                    <div class="col">
+                        <label for="pass1" class="font-weight-bold">Password:</label>
                         <input type="password" name="pass1" id="pass1" required class="form-control">
                     </div>
-                    <div class="col">Confirm Password:
+                    <div class="col">
+                        <label for="pass2" class="font-weight-bold">Confirm Password:</label>
                         <input type="password" name="pass2" id="pass2" required class="form-control">
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                Upload Profile Pic : <input type="file" name="avatar" id="avatar" required class="form-control" onchange="loadImage(event)">
-                <div id="image_preview"></div>
-                <script type="text/javascript">
-                    function loadImage(event) {
-                        console.log(event.target.files[0]);
-                        imageBLOB = URL.createObjectURL(event.target.files[0]);
-                        console.log(imageBLOB);
-                        document.getElementById("image_preview").innerHTML = `
+                <div class="row">
+                    <div class="col">
+                        <label for="avatar" class="font-weight-bold">Upload Profile Pic:</label>
+                        <input type="file" name="avatar" id="avatar" required class="form-control" onchange="loadImage(event)">
+                    </div>
+                    <div class="col">
+                        <div id="image_preview" class="text-center"></div>
+                        <script type="text/javascript">
+                            function loadImage(event) {
+                                console.log(event.target.files[0]);
+                                imageBLOB = URL.createObjectURL(event.target.files[0]);
+                                console.log(imageBLOB);
+                                document.getElementById("image_preview").innerHTML = `
                             <img src="${imageBLOB}" height='100px' width='100px' class='img-thumbnail'/>
-                          `;
-                    }
-                </script>
+                        `;
+                            }
+                        </script>
+                    </div>
+                </div>
+
+
             </div>
             <div class="form-group text-center">
-                <button class="btn btn-primary btn-sm px-4">Submit</button>
-                <button type="reset" class="btn btn-danger btn-sm px-4">Reset</button>
+                <button class="btn btn-primary btn-sm px-4">SignUp Now</button>
+                <button type="reset" class="btn btn-danger btn-sm px-4">Clear Form</button>
+                <a class="btn btn-sm btn-success btn-sm px-4" href="{{url('/users/signin')}}">SignIn Form</a>
             </div>
         </form>
     </div>

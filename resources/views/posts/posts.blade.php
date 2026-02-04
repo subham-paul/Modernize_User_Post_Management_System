@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    <header class="modal-header">
-        <h1>Displaying all Posts :</h1>
-        <a class="btn btn-sm btn-outline-danger" href="{{url('/posts/add')}}">Add Post Here</a>
-    </header>
     <div class="container-fluid">
+        <header class="modal-header">
+            <h4>Displaying All Posts :</h4>
+            <a class="btn btn-sm btn-outline-danger" href="{{url('/posts/add')}}">Add Post Here</a>
+        </header>
         @if(session()->has("USER"))
-        <div class="float-right">Welcome {{session()->get("USER")}}
+        <div class="text-right">Welcome {{session()->get("USER")}}
             <a class="btn btn-sm btn-outline-primary" href="{{url('/users/profile')}}">Profile</a>
             <a class="btn btn-sm btn-outline-secondary" href="{{url('/users/logout')}}">Logout</a>
 
@@ -42,25 +42,28 @@
         @endif
         @endif
         @if(!empty($posts))
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <tr>
-                    <th>View Details:</th>
-                    <th>Title:</th>
-                    <th>Description:</th>
-                    <th>Created:</th>
-                    <th>Posted By:</th>
-                </tr>
-                @foreach($posts as $post)
-                <tr>
-                    <td><a class="btn btn-sm btn-outline-primary" href="{{url('/post')}}/{{$post->post_id}}">View Here</a></td>
-                    <td>{{$post->title}}</td>
-                    <td>{{$post->description}}</td>
-                    <td>{{ date("d-m-y h:i:sA",strtotime($post->created))}}</td>
-                    <td>{{$post->name}}</td>
-                </tr>
-                @endforeach
-            </table>
+        <div class="card p-3 m-3">
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>View Details:</th>
+                        <th>Title:</th>
+                        <th>Description:</th>
+                        <th>Created:</th>
+                        <th>Posted By:</th>
+                    </tr>
+                    @foreach($posts as $post)
+                    <tr>
+                        <td><a class="btn btn-sm btn-outline-primary" href="{{url('/post')}}/{{$post->post_id}}">View Here</a></td>
+                        <td>{{$post->title}}</td>
+                        <td>{{$post->description}}</td>
+                        <td>{{ date("d-m-y h:i:sA",strtotime($post->created))}}</td>
+                        <td>{{$post->name}}</td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
         </div>
         @endif
     </div>
