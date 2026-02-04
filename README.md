@@ -126,15 +126,13 @@ database/
 
 ---
 
-## 📸 Screenshots (Optional)
+## 📸 Preview 
 
-> Add screenshots or GIF previews of your app here
-> Example:
->
-> * Dashboard Interface
-> * Admin Panel
-> * Post Management Page
-> * Profile Upload Section
+
+
+https://github.com/user-attachments/assets/8d72c9f1-5c66-4d01-b966-321c4028bddf
+
+
 
 ---
 
